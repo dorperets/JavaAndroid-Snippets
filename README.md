@@ -1,4 +1,4 @@
-# javaandroid-snippets README
+# JavaAndroid snippets
 
 JavaAndroid snippets
 
