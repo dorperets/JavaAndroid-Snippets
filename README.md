@@ -10,7 +10,7 @@ Android:
 | ------------ | ---------------- |
 | onc, oncreate | onCreate function |
 | onr, onresume | onResume function |
-| onp, onpause | onPreate function |
+| onp, onpause | onPause function |
 | ond, ondestroy | onDestroy function |
 | mContext, ctxt, mctxt | mContext init + assign |
 | br, receiver, onreceive | BroadcastReceiver |
