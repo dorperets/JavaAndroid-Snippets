@@ -3,6 +3,7 @@
     "displayName": "JavaAndroid Snippets",
     "description": "Snippets for Java Android",
     "version": "0.0.1",
+    "publisher": "Dor Perets",
     "engines": {
         "vscode": "^1.69.0"
     },
@@ -16,5 +17,17 @@
                 "path": "./snippets/snippets.code-snippets"
             }
         ]
-    }
+    },
+    "icon": "java-android.jpg",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/dorperets/JavaAndroid-snippets"
+    },
+    "keywords": [
+		"snippet",
+		"snippets",
+		"android",
+		"java",
+		"vscode"
+	]
 }
