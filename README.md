@@ -37,8 +37,18 @@ Java:
 
 ## Extension Settings
 
-"editor.tabCompletion": true      --> to use tab for completion (can use enter as well)
+use Tab / Enter for completion
+on settings, enable those
 
-"editor.snippetSuggestions": "top" --> to make sure the snippets are on top
+```json
+"editor.tabCompletion": "on"
+"editor.snippetSuggestions": "top"
+```
+
+## License
+
+dorperets/JavaAndroid-snippets is provided and distributed under the [Apache Software License 2.0](http://www.apache.org/licenses/LICENSE-2.0).
+
+Refer to *LICENSE* for more information.
 
 **Enjoy!**
