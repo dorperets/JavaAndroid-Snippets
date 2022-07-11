@@ -37,13 +37,7 @@ Java:
 
 ## Extension Settings
 
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
-
-For example:
-
-This extension contributes the following settings:
-
-* `myExtension.enable`: enable/disable this extension
-* `myExtension.thing`: set to `blah` to do something
+"editor.tabCompletion": true,      --> to use tab for completion (can use enter as well)
+"editor.snippetSuggestions": "top" --> to make sure the snippets are on top
 
 **Enjoy!**
