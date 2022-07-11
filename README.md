@@ -38,6 +38,7 @@ Java:
 ## Extension Settings
 
 "editor.tabCompletion": true,      --> to use tab for completion (can use enter as well)
+
 "editor.snippetSuggestions": "top" --> to make sure the snippets are on top
 
 **Enjoy!**
