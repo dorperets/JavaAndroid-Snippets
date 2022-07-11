@@ -1,0 +1,20 @@
+{
+    "name": "javaandroid-snippets",
+    "displayName": "JavaAndroid Snippets",
+    "description": "Snippets for Java Android",
+    "version": "0.0.1",
+    "engines": {
+        "vscode": "^1.69.0"
+    },
+    "categories": [
+        "Snippets"
+    ],
+    "contributes": {
+        "snippets": [
+            {
+                "language": "java",
+                "path": "./snippets/snippets.code-snippets"
+            }
+        ]
+    }
+}

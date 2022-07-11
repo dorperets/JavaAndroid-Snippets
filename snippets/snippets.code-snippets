@@ -1,0 +1,222 @@
+{
+    /** 
+     * Created by Dor Perets 11/07/2022
+     */
+        "For Loop":{
+            "prefix": ["foreach"],
+            "body": [
+                "for (${1|int,String,boolean,long,float,double,short,byte,char|} element : ${2:arrayName}) {", 
+                "\t", 
+                "}"
+            ],
+            "description": "A for loop."
+        },
+    
+        "Fori":{
+            "prefix": ["fori", "for"],
+            "body": [
+                "for (int i = ${1:0}; i <= ${2:LENGTH}; i++) {",
+                "\t$0",
+                "}"
+            ],
+            "description": "Another for loop."
+        },
+    
+        "TAG": {
+            "prefix": ["tag"],
+            "body": ["private static final String TAG = \"${1:$TM_FILENAME_BASE}\";"],
+            "description": "TAG"
+        },
+    
+        "logi": {
+            "prefix": ["logi"],
+            "body": ["Log.i(TAG, \"$0\");"],
+            "description": "Log info"
+        },
+    
+        "loge": {
+            "prefix": ["loge"],
+            "body": ["Log.e(TAG, \"$0\", e);"],
+            "description": "Log error"
+        },
+    
+        "If null": {
+            "prefix": ["ifn", "nullcheck"],
+            "body": [
+                "if (${1:varName} == null) {",
+                "\t$0",
+                "}"
+            ],
+            "description": "if null"
+        },
+    
+        "if not null": {
+            "prefix": ["inn", "notnull", "ifnn"],
+            "body": [
+                "if (${1:varName} != null) {",
+                "\t$0",
+                "}"
+            ],
+            "description": "if not null"
+        },
+    
+        "Switch": {
+            "prefix": ["sw", "switch"],
+            "body": [
+                "switch (${1:varName}) {",
+                "\tcase ${2:value}:",
+                "\t\t$0",
+                "\t\tbreak;",
+                "\tdefault:",
+                "\t\tbreak;",
+                "}"
+            ],
+            "description": "switch-case"
+        },
+    
+        "Try block": {
+            "prefix": ["try"],
+            "body": [
+                "try {",
+                "\t$TM_SELECTED_TEXT",
+                "} catch (${1:Exception} ex) {",
+                "\tLog.e(TAG,\"Exception caught : \", e);",
+                "}"
+            ],
+            "description": "try catch block"
+        },
+    
+        "onClickListener": {
+            "prefix": ["onclick", "clicker","onClick"],
+            "body": [
+                "${1:viewName}.setOnClickListener(v -> {" , 
+                "\t$0", 
+                "});"],
+            "description": "setOnClickListener"
+        },
+    
+        "func": {
+            "prefix": ["func","foo"],
+            "body": [
+                "${1|private,public,protected, |} ${2|void,int,String,boolean,Intent,Context,long,float,double,short,byte,char|} ${3:methodName}($4) {",			"\t$0",
+                "}",
+                ""
+            ],
+            "description": "function"
+        },
+    
+        "const": {
+            "prefix": ["sf", "const", "psf", "psfs"],
+            "body": [
+                "${1|private,public,protected, |} static final ${2|int,String,boolean,Intent,Context,long,float,double,short,byte,char|} ${3:VAR_NAME} = ${4:value};",
+                "$0"
+            ],
+            "description": "constant"
+        },
+    
+        "variable": {
+            "prefix": ["var", "variable"],
+            "body": [
+                "${1|int,String,boolean,Intent,Context,long,float,double,short,byte,char|} ${2:varName} = ${3:defaultValue};",
+                "$0"
+            ],
+            "description": "variable"
+        },
+    
+        "view": {
+            "prefix": ["view", "fvbi"],
+            "body": [
+                "${1|View,Button,TextView,ImageView,Switch,Spinner|} ${2:varName} = findViewById(R.id.${3:layoutID});",
+                "$0"
+            ],
+            "description": "common view"
+        },
+    
+        "oncreate": {
+            "prefix": ["onc", "oncreate"],
+            "body": [
+                "@Override",
+                "protected void onCreate(Bundle savedInstanceState) {",
+                "\tsuper.onCreate(savedInstanceState);",
+                "\t$0",
+                "}"
+            ],
+            "description": "oncreate"
+        },
+    
+        "onresume": {
+            "prefix": ["onr", "onresume"],
+            "body": [
+                "@Override",
+                "protected void onResume() {",
+                "\tsuper.onResume();",
+                "\t$0",
+                "}"
+            ],
+            "description": "onresume"
+        },
+    
+        "onpause": {
+            "prefix": ["onp", "onpause"],
+            "body": [
+                "@Override",
+                "protected void onPause() {",
+                "\tsuper.onPause();",
+                "\t$0",
+                "}"
+            ],
+            "description": "onpause"
+        },
+    
+        "ondestroy": {
+            "prefix": ["ond", "ondestroy"],
+            "body": [
+                "@Override",
+                "protected void onDestroy() {",
+                "\tsuper.onDestroy();",
+                "\t$0",
+                "}"
+            ],
+            "description": "ondestroy"
+        },
+    
+        "mcontext": {
+            "prefix": ["mContext", "ctxt", "mctxt"],
+            "body": [
+                "Context mContext = ${1|this,context,getContext(),getApplicationContext(), |};",
+                "$0"
+            ],
+            "description": "context assigning"
+        },
+    
+        "Receiver": {
+            "prefix": ["receiver", "onreceive", "br"],
+            "body": [
+                "private BroadcastReceiver ${1:receiverName} = new BroadcastReceiver() {",
+                "\t@Override",
+                "\tpublic void onReceive(Context context, Intent intent) {",
+                "\t\tLog.d(TAG, \"onReceive : ${1:receiverName}\");",
+                "\t\t$0",
+                "\t}",
+                "};"
+            ],
+            "description": "broadcast receiver"
+        },
+    
+        "setprop": {
+            "prefix": ["setprop", "setp"],
+            "body": [
+                "SystemProperties.set(${1:PROPERTY_NAME},${2:PROPERTY_VALUE});"
+            ],
+            "description": "setprop"
+        },
+    
+        "getprop": {
+            "prefix": ["getprop", "getp"],
+            "body": [
+                "SystemProperties.get(${1:PROPERTY_NAME},${2:defaultValue});"
+            ],
+            "description": "getprop"
+        },
+    
+}
