@@ -37,8 +37,9 @@ Java:
 
 ## Extension Settings
 
-use Tab / Enter for completion
-on settings, enable those
+use Tab / Enter for completion.
+
+on settings, enable those:
 
 ```json
 "editor.tabCompletion": "on"
