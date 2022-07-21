@@ -10,7 +10,7 @@ Android:
 | ------------ | ---------------- |
 | onc, oncreate | onCreate function |
 | onr, onresume | onResume function |
-| onp, onpause | onPreate function |
+| onp, onpause | onPause function |
 | ond, ondestroy | onDestroy function |
 | mContext, ctxt, mctxt | mContext init + assign |
 | br, receiver, onreceive | BroadcastReceiver |
@@ -21,6 +21,7 @@ Android:
 | loge | Log.e |
 | view, fvbi | FindViewById |
 | onclick, clicker | onClickListener lambda |
+| svc, service | Service class |
 
 Java:
 | **Usage** | **Description** |
@@ -29,11 +30,13 @@ Java:
 | foreach | for each loop |
 | ifn, nullcheck | If null statement |
 | ifnn, inn, notnull | If not null statement |
+| th, thread | wait for thread |
 | sw, switch | Switch-Case |
 | try | try-catch block on Selected Text |
 | func, foo | create new method |
 | psf, const, psfs | Create Constant |
 | var, variable | Create Variable |
+| sngl, singleton | Singleton class |
 
 ## Extension Settings
 

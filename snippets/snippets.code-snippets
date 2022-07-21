@@ -67,6 +67,12 @@
                 "\tcase ${2:value}:",
                 "\t\t$0",
                 "\t\tbreak;",
+                "\tcase ${3:value2}:",
+                "\t\t$0",
+                "\t\tbreak;",
+                "\tcase ${4:value3}:",
+                "\t\t$0",
+                "\t\tbreak;",
                 "\tdefault:",
                 "\t\tbreak;",
                 "}"
@@ -195,12 +201,58 @@
                 "private BroadcastReceiver ${1:receiverName} = new BroadcastReceiver() {",
                 "\t@Override",
                 "\tpublic void onReceive(Context context, Intent intent) {",
-                "\t\tLog.d(TAG, \"onReceive : ${1:receiverName}\");",
+                "\t\tfinal String action = intent.getAction();",
+                "\t\tLog.d(TAG, \"${1:receiverName} - onReceive : \" + action);",
                 "\t\t$0",
                 "\t}",
                 "};"
             ],
             "description": "broadcast receiver"
+        },
+
+        "service": {
+            "prefix": ["service", "svc"],
+            "body": [
+                "public class ${1:serviceName} extends Service {",
+                "\tprivate static final String TAG = \"${1:serviceName}\";",
+                "\tpublic ${1:serviceName}() {",
+                "\t\t$0",
+                "\t}",
+                "",
+                "\t@Override",
+                "\tpublic int onStartCommand(Intent intent, int flags, int startId) {",
+                "\t\tLog.d(TAG, \"onStartCommand\");",
+                "\t\t$0",
+                "\t\treturn super.onStartCommand(intent, flags, startId);",
+                "\t}",
+                "",
+                "\t@Override",
+                "\tpublic IBinder onBind(Intent intent) {",
+                "\t\tLog.d(TAG, \"onBind\");",
+                "\t\t$0",
+                "\t\treturn START_STICKY;",
+                "\t\t//return null;",
+                "\t}",
+                "}"
+
+            ],
+            "description": "serviceClass"
+        },
+
+        "thread": {
+            "prefix": ["thread", "th"],
+            "body": [
+                "Thread ${1:threadName} = new Thread(() -> {",
+                "\t$0",
+                "});",
+                "${1:threadName}.start();",
+                "try {",
+                "\t${1:threadName}.join();",
+                "} catch (InterruptedException e) {",
+                "\tLog.e(TAG, \"InterruptedException waiting for thread ${1:threadName}\", e);",
+                "}"
+            ],
+            "description": "setprop"
         },
     
         "setprop": {
@@ -217,6 +269,50 @@
                 "SystemProperties.get(${1:PROPERTY_NAME},${2:defaultValue});"
             ],
             "description": "getprop"
+        },
+
+        "Singleton": {
+            "prefix": [
+                "singleton", "sngl"
+            ],
+            "body": [
+                "public class ${1:$TM_FILENAME_BASE} {",
+                "",
+                "\tprivate static volatile ${1:$TM_FILENAME_BASE} instance;",
+                "",
+                "\tprivate ${1:$TM_FILENAME_BASE}(){",
+                "\t\t// TODO : Create the Singleton!",
+                "\t}",
+                "\t/**",
+                "\t * @return the single instance, thread safe",
+                "\t */",
+                "\tpublic static ${1:$TM_FILENAME_BASE} getInstance(){",
+                "\t\tif (instance == null) {",
+                "\t\t\tsynchronized (${1:$TM_FILENAME_BASE}.class) {",
+                "\t\t\t\tif (instance == null) {",
+                "\t\t\t\t\tinstance = new ${1:$TM_FILENAME_BASE}();",
+                "\t\t\t\t}",
+                "\t\t\t}",
+                "\t\t}",
+                "\t\treturn instance;",
+                "\t}",
+                "}",
+            ],
+            "description": "singleton"
+        },
+
+        "enum": {
+            "prefix": [
+                "enum"
+            ],
+            "body": [
+                "public enum ${1:$TM_FILENAME_BASE} {",
+                "\t${2:ONE},",
+                "\t${3:TWO},",
+                "\t${4:THREE},",
+                "}"
+            ],
+            "description": "An enum"
         },
     
 }
